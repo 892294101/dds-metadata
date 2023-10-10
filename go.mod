@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/892294101/cache-mmap v0.0.0-20220928035239-34410174e250
-	github.com/892294101/dds-spfile v0.0.0-20231009091241-4744c80825ed
+	github.com/892294101/dds-spfile v0.0.0-20231010083737-b090632e7090
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 )

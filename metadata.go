@@ -115,9 +115,9 @@ func (m *MdHandle) CreateMetaDataFile(processName string, dataBaseType string, p
 func InitMetaData(processName string, dataBaseType string, processType string, log *logrus.Logger, opsType int) (MetaData, error) {
 	var md MetaDatas
 	switch dataBaseType {
-	case dds_spfile.GetMySQLName():
+	case ddsspfile.GetMySQLName():
 		switch processType {
-		case dds_spfile.GetExtractName():
+		case ddsspfile.GetExtractName():
 			md = &MySQLMetaDataBus{}
 			// 初始化元数据句柄
 			mdh := new(MdHandle)
@@ -144,14 +144,14 @@ func InitMetaData(processName string, dataBaseType string, processType string, l
 			}
 			return mdBus, nil
 
-		case dds_spfile.GetReplicationName():
+		case ddsspfile.GetReplicationName():
 			return nil, errors.Errorf("The process type needs to be implemented")
 		default:
 			return nil, errors.Errorf("Metadata management does not support this process")
 		}
-	case dds_spfile.GetOracleName():
+	case ddsspfile.GetOracleName():
 		switch processType {
-		case dds_spfile.GetExtractName():
+		case ddsspfile.GetExtractName():
 			md = &OracleMetaDataBus{}
 			// 初始化元数据句柄
 			mdh := new(MdHandle)
@@ -177,7 +177,7 @@ func InitMetaData(processName string, dataBaseType string, processType string, l
 				return nil, err
 			}
 			return mdBus, nil
-		case dds_spfile.GetReplicationName():
+		case ddsspfile.GetReplicationName():
 			return nil, errors.Errorf("The process type needs to be implemented")
 		}
 

@@ -325,7 +325,7 @@ func (m *MySQLMdExtConsole) SetDataBaseType(r string) error {
 	m.lock.Lock()
 	defer m.lock.Unlock()
 	switch r {
-	case dds_spfile.GetMySQLName():
+	case ddsspfile.GetMySQLName():
 		l := make([]byte, DataBaseTypePlace)
 		binary.LittleEndian.PutUint64(l, MYSQL)
 		if _, err := m.metaData.handle.WriteAt(l, DataBaseTypeInitialPlace); err != nil {
@@ -334,7 +334,7 @@ func (m *MySQLMdExtConsole) SetDataBaseType(r string) error {
 	default:
 		return errors.Errorf("MySQLMdExtConsole %v", UnknownDT)
 	}
-	dds_spfile.GetExtractName()
+	ddsspfile.GetExtractName()
 	return nil
 }
 
@@ -348,7 +348,7 @@ func (m *MySQLMdExtConsole) GetDataBaseType() (*string, error) {
 	convInt := binary.LittleEndian.Uint64(xid)
 	switch convInt {
 	case MYSQL:
-		n := dds_spfile.GetMySQLName()
+		n := ddsspfile.GetMySQLName()
 		return &n, nil
 	default:
 		return nil, UnknownDT
@@ -359,7 +359,7 @@ func (m *MySQLMdExtConsole) SetProcessType(r string) error {
 	m.lock.Lock()
 	defer m.lock.Unlock()
 	switch r {
-	case dds_spfile.GetExtractName():
+	case ddsspfile.GetExtractName():
 		l := make([]byte, ProcessTypePlace)
 		binary.LittleEndian.PutUint64(l, CAPTURE)
 		if _, err := m.metaData.handle.WriteAt(l, ProcessTypeInitialPlace); err != nil {
@@ -381,7 +381,7 @@ func (m *MySQLMdExtConsole) GetProcessType() (*string, error) {
 	convInt := binary.LittleEndian.Uint64(xid)
 	switch convInt {
 	case CAPTURE:
-		n := dds_spfile.GetExtractName()
+		n := ddsspfile.GetExtractName()
 		return &n, nil
 	default:
 		return nil, UnknownPT
@@ -672,7 +672,7 @@ func (m *OracleMdExtConsole) SetDataBaseType(r string) error {
 	m.lock.Lock()
 	defer m.lock.Unlock()
 	switch r {
-	case dds_spfile.GetOracleName():
+	case ddsspfile.GetOracleName():
 		l := make([]byte, DataBaseTypePlace)
 		binary.LittleEndian.PutUint64(l, MYSQL)
 		if _, err := m.metaData.handle.WriteAt(l, DataBaseTypeInitialPlace); err != nil {
@@ -695,7 +695,7 @@ func (m *OracleMdExtConsole) GetDataBaseType() (*string, error) {
 	convInt := binary.LittleEndian.Uint64(xid)
 	switch convInt {
 	case MYSQL:
-		n := dds_spfile.GetMySQLName()
+		n := ddsspfile.GetMySQLName()
 		return &n, nil
 	default:
 		return nil, UnknownDT
@@ -706,7 +706,7 @@ func (m *OracleMdExtConsole) SetProcessType(r string) error {
 	m.lock.Lock()
 	defer m.lock.Unlock()
 	switch r {
-	case dds_spfile.GetExtractName():
+	case ddsspfile.GetExtractName():
 		l := make([]byte, ProcessTypePlace)
 		binary.LittleEndian.PutUint64(l, CAPTURE)
 		if _, err := m.metaData.handle.WriteAt(l, ProcessTypeInitialPlace); err != nil {
@@ -728,7 +728,7 @@ func (m *OracleMdExtConsole) GetProcessType() (*string, error) {
 	convInt := binary.LittleEndian.Uint64(xid)
 	switch convInt {
 	case CAPTURE:
-		n := dds_spfile.GetExtractName()
+		n := ddsspfile.GetExtractName()
 		return &n, nil
 	default:
 		return nil, UnknownPT
