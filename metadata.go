@@ -1,4 +1,4 @@
-package dds_metadata
+package ddsmetadata
 
 import (
 	"fmt"

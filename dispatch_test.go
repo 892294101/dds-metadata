@@ -1,1 +1,1 @@
-package dds_metadata
+package ddsmetadata
