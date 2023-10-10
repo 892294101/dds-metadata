@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/892294101/cache-mmap/mmap"
 	"github.com/892294101/dds-spfile"
-	"github.com/892294101/dds/utils"
+	"github.com/892294101/dds-utils"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"os"
@@ -43,7 +43,7 @@ func (m *MdHandle) LoadMetaDataFile(processName string, dataBaseType string, pro
 	m.dataBaseType = dataBaseType
 	m.processType = processType
 	m.log = log
-	home, err := utils.GetHomeDirectory()
+	home, err := ddsutils.GetHomeDirectory()
 	if err != nil {
 		return err
 	}
@@ -80,7 +80,7 @@ func (m *MdHandle) CreateMetaDataFile(processName string, dataBaseType string, p
 	m.dataBaseType = dataBaseType
 	m.processType = processType
 	m.log = log
-	home, err := utils.GetHomeDirectory()
+	home, err := ddsutils.GetHomeDirectory()
 	if err != nil {
 		return err
 	}

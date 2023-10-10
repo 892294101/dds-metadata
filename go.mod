@@ -4,13 +4,13 @@ go 1.19
 
 require (
 	github.com/892294101/cache-mmap v0.0.0-20220928035239-34410174e250
-	github.com/892294101/dds v0.0.0-20231009030821-f6f41068312d
 	github.com/892294101/dds-spfile v0.0.0-20231009091241-4744c80825ed
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 )
 
 require (
+	github.com/892294101/dds-utils v0.0.0-20231010070848-7fccccfd3933 // indirect
 	github.com/892294101/go-mysql v1.2.3 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/mattn/go-sqlite3 v1.14.17 // indirect
